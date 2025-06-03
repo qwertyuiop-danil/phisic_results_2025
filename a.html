@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Результаты экзамена</title>
+  <style>
+    /* Минимальное оформление, только чтобы границы таблицы были видны */
+    table, th, td { border: 1px solid #000; border-collapse: collapse; padding: 4px; }
+    #results { display: none; margin-top: 1em; }
+  </style>
+</head>
+<body>
+  <label for="passport">Серия и номер паспорта:</label>
+  <input type="text" id="passport" placeholder="1234 567890">
+  <button id="getBtn">Получить</button>
+
+  <table id="results">
+    <thead>
+      <tr>
+        <th>Предмет</th>
+        <th>Правильных ответов</th>
+        <th>Оценка</th>
+        <th>Дата экзамена</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Физика</td>
+        <td>4</td>
+        <td>2</td>
+        <td>2025.05.29</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    document.getElementById('getBtn').addEventListener('click', function () {
+      var passport = document.getElementById('passport').value.trim();
+      if (passport === '') {
+        alert('Пожалуйста, введите серию и номер паспорта.');
+        return;
+      }
+      // Здесь могла бы быть проверка паспорта на сервере
+      document.getElementById('results').style.display = 'table';
+    });
+  </script>
+</body>
+</html>
